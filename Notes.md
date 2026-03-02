@@ -31,6 +31,7 @@ Like map chunks, tiles coordinates reflect the position of their top left corner
 Unlike map chunks and tiles, the player, npcs, items, doors, ladders, and other interactive objects exist on an offset lattice. This lattice is offset a half tile vertically and horizontally. This means the player, and other objects the player will need to be aligned with, don't straddle multiple tiles. If the movement and tiling lattices were one, the player would, at any given stationary position, straddle 4 tiles. The purpose of this is to simplify the art.
 
 ## Gadgets
+Special items that allow the player to interact with the map differently.
 
 ### Raft
 Allows the player to move in water (some exceptions apply).
