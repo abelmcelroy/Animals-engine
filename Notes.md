@@ -58,9 +58,10 @@ Notifies the player when they are within five moves of a hidden item.
 Allows the player to vault drop down from a single plane.
 
 ## Interactive Objects
+There will be specialized state for storing the positions of interactive objects. This will store things such as positions and directions of NPCs, positions of rocks/logs, etc.
 
 ### Boulders
-A round stone that can be pushed one lattice length at a time away from the direction of the player. Boulders are stateless. So that boulders respawn in correct positions and properly track wether they've been moved to final resting places (the positions that they need to be in to trigger certain effects or solve certain puzzles), there will be a section of quests related to boulders that tracks boulder positions, indexed by map chunk id.
+A round stone that can be pushed one lattice length at a time away from the direction of the player. Boulders are stateless. So that boulders respawn in correct positions and properly track wether they've been moved to final resting places (the positions that they need to be in to trigger certain effects or solve certain puzzles).
 When pushed into shallow water, they create stepping stones.
 
 ### Logs
@@ -70,9 +71,23 @@ Logs are just like boulders but can only be moved in the direction perpendicular
 Non-traversable territory that can be temporarily cut to short grass with the scythe.
 
 ### NPCs
-
+NPCs have directions, ids, and conversation ids each paired with a conditional. They can move and interact with tile metadata to know if there are any boundaries they cannot cross.
 
 ## Dialog
+Dialog/conversations are trees. each node has: options, lines, battle ids, rewards, and/or quest updates.
 
+Because the protagonist is silent all the decisions will be of on-verbal activities, like simple pantamimable phrases like 'yes' or 'no'. Or, actions which require no words from the players: "wait". 
 
 ## Quests
+a dict of objects with phases flags.
+
+e.x.:
+{
+  mainQuest: {
+    phases: {
+      meet_ikrus: false,
+      ...
+    }
+  },
+  ...
+}
